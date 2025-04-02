@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB BÁN ĐỒ ĂN VẶT</title>
+  <style>
+    :root {
+      --primary-color: #FF6B6B;
+      --secondary-color: #4ECDC4;
+      --accent-color: #FFE66D;
+      --dark-color: #292F36;
+      --light-color: #F7FFF7;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+    }
+
+    .header {
+      background-color: white;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 110px;
+      margin-right: 60px;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      font-size: 8.5rem;
+      color: var(--primary-color);
+    }
+
+    .nav-container {
+      background-color: var(--accent-color);
+      padding: 10px;
+      border-radius: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--dark-color);
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav a:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* New styles for the login link */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .header-right .login-btn {
+      text-decoration: none;
+      color: var(--dark-color);
+      font-weight: 600;
+      padding: 8px 15px;
+      border: 2px solid var(--primary-color);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .header-right .login-btn:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .banner {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      margin-bottom: 30px;
+    }
+
+    .banner h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .banner p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .menu-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+      position: relative;
+    }
+
+    .menu-title:after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: var(--accent-color);
+      margin: 10px auto;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .menu-item-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .menu-item-content {
+      padding: 20px;
+    }
+
+    .menu-item-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--dark-color);
+    }
+
+    .menu-item-price {
+      font-weight: bold;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    .order-btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: var(--dark-color);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      .logo {
+        margin-bottom: 10px; /* Fixed the 100% typo from earlier */
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .banner h1 {
+        font-size: 2rem;
+      }
+
+      .header-right {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="../anvat/Logo_vku-01.jpg" alt="Logo Đồ ăn vặt">
+    </div>
+    <div class="nav-container">
+      <nav class="nav">
+        <a href="#banh-trang-tac">Bánh tráng tắc</a>
+        <a href="#banh-trang-bo">Bánh tráng bơ</a>
+        <a href="#banh-trang-xi-ke">Bánh tráng xì ke</a>
+        <a href="#com-chay">Cơm cháy</a>
+        <a href="#keo">Kẹo các loại</a>
+        <a href="#moc-khoa">Móc khóa</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <!-- Updated href to point to login.html -->
+      <a href="login.html" class="login-btn">Đăng Nhập/Tạo tài khoản</a>
+    </div>
+  </div>
+</header>
+  <section class="banner">
+    <h1>Đồ Ăn Vặt Ngon - Giá Hạt Dẻ</h1>
+    <p>Chúc các bạn ăn ngon miệng</p>
+  </section>
+
+  <main class="menu-container">
+    <h2 class="menu-title">THỰC ĐƠN CỦA CHÚNG TÔI</h2>
+    <div class="menu-grid">
+      <div class="menu-item" id="banh-trang-tac">
+        <div class="menu-item-img" style="background-image: url('../anvat/hinh-anh-3.webp');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Bánh tráng tắc</h3>
+          <div class="menu-item-price">10.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="banh-trang-bo">
+        <div class="menu-item-img" style="background-image: url('../anvat/sg-11134201-22100-ofy6ke1793iv91.jpg');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Bánh tráng bơ</h3>
+          <div class="menu-item-price">10.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="banh-trang-xi-ke">
+        <div class="menu-item-img" style="background-image: url('../anvat/img_8404.jpeg');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Bánh tráng xì ke</h3>
+          <div class="menu-item-price">10.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="com-chay">
+        <div class="menu-item-img" style="background-image: url('../anvat/z5338140523123_dba4bc52d8f5f7df0965608557cdfb99_45f56044bece480bbb749d839590975b_master.webp');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Cơm cháy</h3>
+          <div class="menu-item-price">10.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="com-chay-khoquet">
+        <div class="menu-item-img" style="background-image: url('../anvat/cach-lam-com-chay-1.jpg');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Cơm cháy kho quẹt, chữ</h3>
+          <div class="menu-item-price">20.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="com-chay-mohanh">
+        <div class="menu-item-img" style="background-image: url('../anvat/cach-lam-com-chay-mo-hanh-gion-rum-ai-cung-muon-an-1-540.jpg');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Cơm cháy mỡ hành</h3>
+          <div class="menu-item-price">25.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="keo">
+        <div class="menu-item-img" style="background-image: url('../anvat/8935001718840.jpg.webp');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Kẹo trái cây</h3>
+          <div class="menu-item-price">10.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="keo-chupa">
+        <div class="menu-item-img" style="background-image: url('../anvat/images.jpg');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Kẹo Chupa chups</h3>
+          <div class="menu-item-price">10.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+
+      <div class="menu-item" id="moc-khoa">
+        <div class="menu-item-img" style="background-image: url('../anvat/01691232385e5f7c7ac8762f92ea0299.jpg');"></div>
+        <div class="menu-item-content">
+          <h3 class="menu-item-title">Móc khóa lá cờ, chữ</h3>
+          <div class="menu-item-price">20.000 VNĐ</div>
+          <a href="#" class="order-btn">Đặt mua</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
